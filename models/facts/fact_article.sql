@@ -1,4 +1,4 @@
-select
+select distinct
     _id,
     abstract,
     web_url,
