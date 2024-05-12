@@ -1,0 +1,24 @@
+select * from
+(
+    WITH LaggedData AS (
+    SELECT news_desk,
+           date(pub_date),
+           LAG(date(pub_date)) OVER (PARTITION BY news_desk ORDER BY date(pub_date)) AS prev_pub_date,
+           date(pub_date)- LAG(date(pub_date)) OVER (PARTITION BY news_desk ORDER BY date(pub_date)) AS diff
+    FROM crack-will-422608-j1.GroupProject.article
+)
+SELECT news_desk,
+       AVG(diff) AS avg_time_between_articles
+FROM LaggedData
+GROUP BY news_desk)
+where avg_time_between_articles is not null
+order by avg_time_between_articles desc
+
+
+
+select headline.kicker,count(*) as record_count
+from crack-will-422608-j1.GroupProject.article 
+WHERE headline.kicker is not null
+group by headline.kicker
+order by record_count desc
+LIMIT 10
