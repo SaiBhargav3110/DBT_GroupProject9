@@ -12,7 +12,7 @@ SELECT
          WHEN EXTRACT(MONTH FROM pub_date) IN (6, 7, 8) THEN 'Summer'
          ELSE 'Fall' END AS season
 FROM
-    `crack-will-422608-j1.GroupProject.article`
+    {{source('article','article')}}
 ORDER BY
     date
 
