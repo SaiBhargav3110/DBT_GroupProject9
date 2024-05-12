@@ -19,4 +19,4 @@ select distinct
     person.organization,
     person.rank
 from
-    `crack-will-422608-j1.GroupProject.article` as test, unnest(byline.person) as person
+    {{source('article','article')}} as test, unnest(byline.person) as person
