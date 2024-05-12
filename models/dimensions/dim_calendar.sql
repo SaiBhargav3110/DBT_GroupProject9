@@ -1,5 +1,6 @@
 SELECT
     DISTINCT DATE(pub_date) AS date,
+        left(string(date(pub_date)),7) as Year_Month,
     EXTRACT(YEAR FROM pub_date) AS year,
     EXTRACT(MONTH FROM pub_date) AS month,
     EXTRACT(DAY FROM pub_date) AS day,
