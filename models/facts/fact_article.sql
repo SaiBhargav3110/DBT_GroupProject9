@@ -22,7 +22,7 @@ select distinct
     type_of_material,
     word_count
 from
-    `crack-will-422608-j1.GroupProject.article`
+    {{source('article','article')}}
     left join unnest(multimedia) m
     left join unnest(keywords) k
     left join unnest(byline.person) bp

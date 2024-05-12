@@ -13,4 +13,4 @@ select distinct
     keyword.name as keyword_type,
     keyword.value as keyword,
     keyword.rank as ranking
-from `crack-will-422608-j1.GroupProject.article`, unnest(keywords) as keyword
+from {{source('article','article')}}, unnest(keywords) as keyword

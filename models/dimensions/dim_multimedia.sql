@@ -8,4 +8,4 @@ select
     height,
     width,
     crop_name
-from `crack-will-422608-j1.GroupProject.article`, unnest(multimedia) as multimedia
+from {{source('article','article')}}, unnest(multimedia) as multimedia
